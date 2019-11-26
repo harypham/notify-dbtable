@@ -8,6 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <script src="{{ asset('js/app.js') }}"></script>
 
         <!-- Styles -->
         <style>
@@ -96,13 +97,5 @@
                 </div>
             </div>
         </div>
-        <script src="{{ asset('js/app.js') }}"></script>
-
-        <script>
-            Echo.channel('message').listen('.NewMessage', (data) => {
-                console.log(data);
-                console.log('bla bla');
-            });
-        </script>
     </body>
 </html>

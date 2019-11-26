@@ -40,8 +40,3 @@ window.Echo = new Echo({
     wsPort: 6001,
     enabledTransports: ['ws', 'wss']
 });
-
-window.Echo.channel('message').listen('NewMessage', (data) => {
-    console.log(data);
-    console.log('bla bla');
-});

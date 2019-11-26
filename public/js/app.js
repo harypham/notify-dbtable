@@ -1857,10 +1857,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
-    this.listenNewMessage();
+    this.listenNotify();
   },
   methods: {
-    listenNewMessage: function listenNewMessage() {}
+    listenNotify: function listenNotify() {
+      Echo["private"]('App.User.1').notification(function (data) {
+        console.log(data);
+
+        if (Notification.permission !== 'granted') {
+          Notification.requestPermission();
+        } else {
+          var notification = new Notification('Notification title', {
+            icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
+            body: 'Hey there! You\'ve been notified!'
+          });
+        }
+      });
+    }
   }
 });
 
@@ -59233,9 +59246,10 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-// const app = new Vue({
-//     el: '#app',
-// });
+
+var app = new Vue({
+  el: '#app'
+});
 
 /***/ }),
 
@@ -59285,10 +59299,6 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   wsHost: window.location.hostname,
   wsPort: 6001,
   enabledTransports: ['ws', 'wss']
-});
-window.Echo.channel('message').listen('NewMessage', function (data) {
-  console.log(data);
-  console.log('bla bla');
 });
 
 /***/ }),
