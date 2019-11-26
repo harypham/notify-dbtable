@@ -18,14 +18,24 @@
     export default {
         mounted() {
             console.log('Component mounted.');
-            this.listenNewMessage();
+            this.listenNotify();
         },
         methods: {
-            listenNewMessage(){
-
-
+            listenNotify() {
+                Echo.private('App.User.1')
+                    .notification((data) => {
+                        console.log(data);
+                        if (Notification.permission !== 'granted') {
+                            Notification.requestPermission();
+                        }
+                        else {
+                            var notification = new Notification('Notification title', {
+                                icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
+                                body: 'Hey there! You\'ve been notified!',
+                            });
+                        }
+                    });
             }
         }
-
     }
 </script>

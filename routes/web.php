@@ -18,8 +18,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-//Web Route
-Route::get('/test', function () {
-    event(new App\Events\NewMessage('Sent from my Laravel application'));
-    return 'Event Fired';
-});
+
+Route::get('/test', 'UserController@test');
