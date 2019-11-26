@@ -7,8 +7,8 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## About Project
+## About Project:
 
-- Using [Laravel notification](https://laravel.com/docs/6.x/notifications#database-notifications)
+- Using [Laravel Notification](https://laravel.com/docs/6.x/notifications#database-notifications)
 
-- Laravel [websocket](https://github.com/beyondcode/laravel-websockets)
+- Laravel [Websocket](https://github.com/beyondcode/laravel-websockets)
